@@ -5,12 +5,15 @@ The idea of this project is to practice Scrum framework while trying to produce 
 ## Installation instructions
 
 - Clone repository with HTTPS
+
   ```git clone https://github.com/Levottomat-Napit/mininapit.git```
 
 - Clone repository with SSH
+
   ```git clone git@github.com:Levottomat-Napit/mininapit.git```
 
 - Install dependencies
+
   ```poetry install```
 
 ## Run the application
