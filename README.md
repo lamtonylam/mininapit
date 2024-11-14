@@ -19,7 +19,9 @@ The idea of this project is to practice Scrum framework while trying to produce 
 ## Run the application
 
 - Start poetry shell
+
   ```poetry shell```
 
 - Run app
+
   ```python3 src/index.py```
