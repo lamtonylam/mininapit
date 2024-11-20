@@ -7,7 +7,7 @@ from util import validate_todo
 @app.get('/')
 def index():
     citations = get_citations()
-    return render_template("index.html", citations=citations) 
+    return render_template('index.html', citations=citations) 
 
 # @app.route("/new_todo")
 # def new():
@@ -30,12 +30,11 @@ def index():
 #     set_done(todo_id)
 #     return redirect("/")
 
-# testausta varten oleva reitti
 if test_env:
-    @app.route("/reset_db")
+    @app.route('/reset_db')
     def reset_database():
         reset_db()
-        return jsonify({ 'message': "db reset" })
+        return 'db reset'
     
     @app.get('/alive')
     def alive():
