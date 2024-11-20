@@ -4,7 +4,7 @@ from sqlalchemy import text
 from entities.citation import Article
 
 def get_citations():
-    result = db.session.execute(text('select * from articles'))
+    result = db.session.execute(text('SELECT * FROM articles'))
     articles = result.fetchall()
 
     return [Article(*article) for article in articles]
