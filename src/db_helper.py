@@ -33,15 +33,15 @@ def setup_db():
 
   print(f'Creating table {table_name}')
   sql = text(
-    f'create table {table_name} ('
-    '  id serial primary key,'
-    '  key text unique not null,'
-    '  author text not null,'
-    '  title text not null,'
-    '  journal text not null,'
-    '  year int not null,'
-    '  volume text,'
-    '  pages text'
+    f'CREATE TABLE {table_name} ('
+    '  id SERIAL PRIMARY KEY,'
+    '  key TEXT UNIQUE NOT NULL,'
+    '  author TEXT NOT NULL,'
+    '  title TEXT NOT NULL,'
+    '  journal TEXT NOT NULL,'
+    '  year INT NOT NULL,'
+    '  volume TEXT,'
+    '  pages TEXT'
     ')'
   )
 
