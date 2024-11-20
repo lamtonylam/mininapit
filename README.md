@@ -25,3 +25,7 @@ The idea of this project is to practice Scrum framework while trying to produce 
 - Run app
 
   ```python3 src/index.py```
+
+## Link to the Product Backlog
+
+  ```https://helsinkifi-my.sharepoint.com/:x:/g/personal/memikael_ad_helsinki_fi/EbC2vh1Jn6hJgjfvQTdviaEBy8APVr6O7yxXBjwiqlp3Bg?e=wmwmEa```
