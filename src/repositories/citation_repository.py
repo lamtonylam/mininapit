@@ -1,19 +1,24 @@
 from config import db
 from sqlalchemy import text
 
-from entities.todo import Todo
+from entities.citation import Article
 
-def get_todos():
-    result = db.session.execute(text("SELECT id, content, done FROM todos"))
-    todos = result.fetchall()
-    return [Todo(todo[0], todo[1], todo[2]) for todo in todos] 
+def get_citations():
+    result = db.session.execute(text('SELECT * FROM articles'))
+    articles = result.fetchall()
+
+    return [Article(*article) for article in articles]
 
 def set_done(todo_id):
+    return
+
     sql = text("UPDATE todos SET done = TRUE WHERE id = :id")
     db.session.execute(sql, { "id": todo_id })
     db.session.commit()
 
 def create_todo(content):
+    return
+
     sql = text("INSERT INTO todos (content) VALUES (:content)")
     db.session.execute(sql, { "content": content })
     db.session.commit()
