@@ -28,4 +28,6 @@ The idea of this project is to practice Scrum framework while trying to produce 
 
 ## Link to the Product Backlog
 
-  [Product Backlog](https://helsinkifi-my.sharepoint.com/:x:/g/personal/memikael_ad_helsinki_fi/EbC2vh1Jn6hJgjfvQTdviaEBy8APVr6O7yxXBjwiqlp3Bg?e=wmwmEa)
+  [Product Backlog](https://helsinkifi-my.sharepoint.com/:x:/g/personal/memikael_ad_helsinki_fi/EbC2vh1Jn6hJgjfvQTdviaEBbscj52A8DW6_oJqrS8zWdw?e=IHdviw)
+
+  
