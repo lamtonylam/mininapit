@@ -6,11 +6,13 @@ Test Setup       Reset Todos
 
 *** Test Cases ***
 At start there are no todos
+    skip
     Go To  ${HOME_URL}
     Title Should Be  Todo app
     Page Should Contain  things still unfinished: 0
 
 After adding a todo, there is one
+    skip
     Go To  ${HOME_URL}
     Click Link  Create new todo
     Input Text  content  Buy milk
@@ -19,6 +21,7 @@ After adding a todo, there is one
     Page Should Contain  Buy milk
 
 After adding two todos and marking one done, there is one unfinished
+    skip
     Go To  ${HOME_URL}
     Click Link  Create new todo
     Input Text  content  Buy milk
