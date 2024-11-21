@@ -28,7 +28,7 @@ def create_new():
     return redirect('/')
 
 if test_env:
-    @app.route('/reset_db')
+    @app.get('/reset_db')
     def reset_database():
         reset_db()
         return 'db reset'
