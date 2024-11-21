@@ -50,3 +50,11 @@ SECRET_KEY=somethingsecret
 * Ohjelman toiminnallisuutta on testattu
 * Ohjelmalla on automatisoituja testejä, unit ja robot
 * Projektin edistymisen taso on kirjattu lokiin ja siitä on olemassa burndown-kaavio
+
+## Pull Requests
+
+* Use PRs when making significant changes (small changes may be done directly to main)
+* At least one person should review the request
+* Tests should pass
+* If the PR includes todos, they should be all checked
+* The creator of the pull request will merge it when the most recent changes have been approved
