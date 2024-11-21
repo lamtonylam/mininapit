@@ -1,6 +1,8 @@
 # OhTu-miniproject for managing LaTeX references
 
-The idea of this project is to practice Scrum framework while trying to produce an app that automatically creates BibTeX files from the references in the database
+**aka Bibtex-apuri**
+
+The idea of this project is to practice Scrum framework while trying to produce an app that automatically creates BibTeX files from the references in the database.
 
 ## Running
 
@@ -24,7 +26,7 @@ TEST_ENV=boolean
 SECRET_KEY=somethingsecret
 ```
 
-* Set up database
+* Set up database (this will drop tables!!)
 
   `python3 src/db_helper.py`
 
