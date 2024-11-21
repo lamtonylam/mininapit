@@ -36,7 +36,7 @@ def toggle_bibtex():
     citations = get_citations()
 
     bibtex_citations = generate_bibtex(citations)
-    return render_template('index.html', citations=bibtex_citations)
+    return render_template('index.html', citations=bibtex_citations, is_bibtex=True)
 
 
 

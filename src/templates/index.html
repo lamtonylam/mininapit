@@ -2,9 +2,16 @@
 body %}
 
 <h1>Bibtex-apuri</h1>
+
+{% if not is_bibtex %}
 <form action="/toggle-bibtex" method="GET">
   <button type="submit">Toggle BibTeX</button>
 </form>
+{% else %}
+<form action="/" method="GET">
+  <button type="submit">Toggle normal citations</button>
+</form>
+{% endif %}
 
 <pre>
 {% for citation in citations %}
