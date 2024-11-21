@@ -9,13 +9,12 @@ def index():
     citations = get_citations()
     return render_template('index.html', citations=citations) 
 
-@app.route('/new')
+@app.get('/new')
 def new():
     return render_template('new.html')
 
-@app.route('/create_new' , methods=['POST'])
+@app.post('/create_new')
 def create_new():
-
     key = request.form['key']
     author = request.form['author']
     title = request.form['title']
