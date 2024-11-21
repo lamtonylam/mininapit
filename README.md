@@ -36,10 +36,17 @@ SECRET_KEY=somethingsecret
 
   ```python3 src/index.py```
 
-
-=======
 ## Link to the Product Backlog
 
-  [Product Backlog](https://helsinkifi-my.sharepoint.com/:x:/g/personal/memikael_ad_helsinki_fi/EbC2vh1Jn6hJgjfvQTdviaEBbscj52A8DW6_oJqrS8zWdw?e=IHdviw)
+[Product Backlog](https://helsinkifi-my.sharepoint.com/:x:/g/personal/memikael_ad_helsinki_fi/EbC2vh1Jn6hJgjfvQTdviaEBbscj52A8DW6_oJqrS8zWdw?e=IHdviw)
 
- 
+## Definition of Done
+
+* Asiakkaan vaatimat ominaisuudet ja tekniset vaatimukset otettu selville
+* Vaatimukset analysoitu ja selvitetty minkälaisilla teknisillä valmiuksilla ne voi toteuttaa
+* Asiakkaan vaatimukset on kirjattu user storyiksi
+* User storyt on pilkottu taskeiksi, ja kirjattu
+* Ohjelmistoon vaaditut ominaisuudet on ohjelmoitu ja toteutettu teknisesti
+* Ohjelman toiminnallisuutta on testattu
+* Ohjelmalla on automatisoituja testejä, unit ja robot
+* Projektin edistymisen taso on kirjattu lokiin ja siitä on olemassa burndown-kaavio
