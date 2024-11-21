@@ -1,6 +1,6 @@
 from flask import redirect, render_template, request, jsonify, flash
 from db_helper import reset_db
-from repositories.citation_repository import get_citations, create_todo, set_done, create_citation
+from repositories.citation_repository import get_citations, create_todo, set_done, create_citation, generate_bibtex
 from config import app, test_env
 from util import validate_todo
 
@@ -30,7 +30,13 @@ def create_new():
 
     return render_template('index.html', citations=citations)
 
+@app.route('/toggle-bibtex')
+def toggle_bibtex():
+    print("toggle-bibtex here!")
+    citations = get_citations()
 
+    bibtex_citations = generate_bibtex(citations)
+    return render_template('index.html', citations=bibtex_citations)
 
 
 
