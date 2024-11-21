@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block title %}Luo uusi viite{% endblock %}
+
+{% block body %}
+
+  <h1>Lisää viite</h1>
+
+  <form action="/create_new" method="POST">
+    <div>
+      <label for="key">Viitteen nimi:</label>
+      <input type="text" id="key" name="key" required>
+    </div>
+
+    <div>
+      <label for="author">Kirjoittaja:</label>
+      <input type="text" id="author" name="author" required>
+    </div>
+
+    <div>
+      <label for="title">Otsikko:</label>
+      <input type="text" id="title" name="title" required>
+    </div>
+
+    <div>
+      <label for="journal">Julkaisupaikka:</label>
+      <input type="text" id="journal" name="journal" required>
+    </div>
+
+    <div>
+      <label for="year">Vuosi:</label>
+      <input type="number" id="year" name="year" required>
+    </div>
+
+    <div>
+      <label for="volume">Volyymi:</label>
+      <input type="text" id="volume" name="volume">
+    </div>
+
+    <div>
+      <label for="pages">Sivut:</label>
+      <input type="text" id="pages" name="pages">
+    </div>
+
+    <div>
+      <button type="submit">Lisää viite</button>
+    </div>
+  </form>
+
+  <a href="/">Palaa etusivulle</a>
+
+{% endblock %}
