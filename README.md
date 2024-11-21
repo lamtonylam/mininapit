@@ -36,10 +36,10 @@ SECRET_KEY=somethingsecret
 
   ```python3 src/index.py```
 
-## Backlog and sprint planning
 
-PLEASE ADD READ-ONLY EXCEL LINK HERE
+=======
+## Link to the Product Backlog
 
-## Definition of done
+  [Product Backlog](https://helsinkifi-my.sharepoint.com/:x:/g/personal/memikael_ad_helsinki_fi/EbC2vh1Jn6hJgjfvQTdviaEBbscj52A8DW6_oJqrS8zWdw?e=IHdviw)
 
-A feature can be considered done when it has been planned, coded, tested and integrated. Tests should work automatically and existing features shall not break.
+ 
