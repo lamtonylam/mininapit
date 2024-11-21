@@ -7,7 +7,7 @@ from util import validate_todo
 @app.get('/')
 def index():
     citations = get_citations()
-    return render_template('index.html', citations=citations) 
+    return render_template('index.html', citations=citations)
 
 @app.get('/new')
 def new():
@@ -20,7 +20,7 @@ def create_new():
     title = request.form['title']
     journal = request.form['journal']
     year = request.form['year']
-    volume = request.form.get('volume') 
+    volume = request.form.get('volume')
     pages = request.form.get('pages')
 
     create_citation(key, author, title, journal, year, volume, pages)
