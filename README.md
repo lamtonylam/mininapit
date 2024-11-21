@@ -45,10 +45,8 @@ SECRET_KEY=somethingsecret
 * Asiakkaan vaatimat ominaisuudet ja tekniset vaatimukset otettu selville
 * Vaatimukset analysoitu ja selvitetty minkälaisilla teknisillä valmiuksilla ne voi toteuttaa
 * Asiakkaan vaatimukset on kirjattu user storyiksi
-* User storyt on pilkottu taskeiksi
+* User storyt on pilkottu taskeiksi, ja kirjattu
 * Ohjelmistoon vaaditut ominaisuudet on ohjelmoitu ja toteutettu teknisesti
 * Ohjelman toiminnallisuutta on testattu
-* Ohjelmalla on robottitestejä
-* Ohjelmalla on automatisoituja testejä
-* Projektin taskit on kirjattu lokiin
+* Ohjelmalla on automatisoituja testejä, unit ja robot
 * Projektin edistymisen taso on kirjattu lokiin ja siitä on olemassa burndown-kaavio
