@@ -42,7 +42,7 @@ SECRET_KEY=somethingsecret
 
 ## Definition of Done
 
-* Asiakkaan vaatimat ominaisuudet ja tekniset ominaisuudet otettu selville
+* Asiakkaan vaatimat ominaisuudet ja tekniset vaatimukset otettu selville
 * Vaatimukset analysoitu ja selvitetty minkälaisilla teknisillä valmiuksilla ne voi toteuttaa
 * Asiakkaan vaatimukset on kirjattu user storyiksi
 * User storyt on pilkottu taskeiksi
