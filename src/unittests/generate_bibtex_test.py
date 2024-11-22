@@ -1,6 +1,3 @@
-# In order to python to find imported modules, run this test with 
-# PYTHONPATH=src python3 -m unittest src/unittests/generate_bibtex_test.py
-
 import unittest
 from entities.citation import Article
 from repositories.citation_repository import generate_bibtex
