@@ -32,11 +32,10 @@ def create_new():
 
 @app.route('/toggle-bibtex')
 def toggle_bibtex():
-    print("toggle-bibtex here!")
     citations = get_citations()
-
     bibtex_citations = generate_bibtex(citations)
     return render_template('index.html', citations=bibtex_citations, is_bibtex=True)
+
 
 
 
