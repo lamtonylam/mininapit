@@ -1,23 +1,28 @@
-{% extends "layout.html" %}
+{% extends "layout.html" %} {% block title %}Bibtex-apuri{% endblock %} {% block
+body %}
 
-{% block title %}Bibtex-apuri{% endblock %}
+<h1>Bibtex-apuri</h1>
 
-{% block body %}
+{% if not is_bibtex %}
+<form action="/toggle-bibtex" method="GET">
+  <button type="submit">Toggle BibTeX</button>
+</form>
+{% else %}
+<form action="/" method="GET">
+  <button type="submit">Toggle normal citations</button>
+</form>
+{% endif %}
 
-  <h1>Bibtex-apuri</h1>
+<pre>
+{% for citation in citations %}
+{{citation}}
+{% else %}
+<p>Ei lisättyjä viitteitä</p>
+{% endfor %}
+</pre>
 
-  {% for citation in citations %}
+<br />
 
-    <p><strong>*</strong> {{citation}}</p>
-
-  {% else %}
-
-    <p>Ei lisättyjä viitteitä</p>
-
-  {% endfor %}
-
-  <br>
-
-  <a href="/new">Luo uusi viite</a>
+<a href="/new">Luo uusi viite</a>
 
 {% endblock %}
