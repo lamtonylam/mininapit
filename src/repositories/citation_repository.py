@@ -24,17 +24,17 @@ def generate_bibtex(citations):
     for c in citations:
         # let's fix this issue later
         if type(c) == Article:  # pylint: disable=unidiomatic-typecheck
-            bibtex_c = f"@article{{{c.key},\n" \
-                           f"    author = {{{c.author}}},\n" \
-                           f"    title = {{{c.title}}},\n" \
-                           f"    journal = {{{c.journal}}},\n" \
-                           f"    year = {{{c.year}}},\n" \
-                           f"    volume = {{{c.volume}}},\n" \
-                           f"    pages = {{{c.pages}}}\n" \
-                           f"}}"
+            bibtex_c = f'@article{{{c.key},\n' \
+                           f'    author = {{{c.author}}},\n' \
+                           f'    title = {{{c.title}}},\n' \
+                           f'    journal = {{{c.journal}}},\n' \
+                           f'    year = {{{c.year}}},\n' \
+                           f'    volume = {{{c.volume}}},\n' \
+                           f'    pages = {{{c.pages}}}\n' \
+                           f'}}'
             bibtex_citations.append(bibtex_c)
         # if type(c) == Inproceedings:
-        #     print("Inproceedings it is!")
+        #     print('Inproceedings it is!')
         # if type(c) == Book:
-        #     print("Book it is!")
+        #     print('Book it is!')
     return bibtex_citations

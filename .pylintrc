@@ -1,2 +1,3 @@
 [MAIN]
 disable=missing-module-docstring, missing-class-docstring, missing-function-docstring
+check-quote-consistency=yes
