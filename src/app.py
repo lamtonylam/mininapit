@@ -12,8 +12,8 @@ def index():
 def new():
     return render_template('new.html')
 
-@app.post('/create_new')
-def create_new():
+@app.post('/article_new')
+def article_new():
     key = request.form['key']
     author = request.form['author']
     title = request.form['title']
@@ -24,6 +24,21 @@ def create_new():
 
     create_citation(key, author, title, journal, year, volume, pages)
 
+    citations = get_citations()
+
+    return render_template('index.html', citations=citations)
+
+@app.post('/inproceedings_new')
+def inproceedings_new():
+    key = request.form['key']
+    author = request.form['author']
+    title = request.form['title']
+    year = request.form['year']
+    booktitles = request.form['booktitle']
+
+    # create_citation(key, author, title, journal, year, volume, pages)
+    # Add functions for inproceedings citations to update into the database.
+    
     citations = get_citations()
 
     return render_template('index.html', citations=citations)

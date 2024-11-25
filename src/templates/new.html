@@ -4,46 +4,79 @@
 
 {% block body %}
 
-  <h1>Lisää viite</h1>
+  <h1>Lisää article viite</h1>
 
-  <form action="/create_new" method="POST">
+  <form action="/article_new" method="POST">
     <div>
       <label for="key">Viitteen nimi:</label>
-      <input type="text" id="key" name="key" required>
+      <input type="text" id="key_article" name="key_article" required>
     </div>
 
     <div>
       <label for="author">Kirjoittaja:</label>
-      <input type="text" id="author" name="author" required>
+      <input type="text" id="author_article" name="author_article" required>
     </div>
 
     <div>
       <label for="title">Otsikko:</label>
-      <input type="text" id="title" name="title" required>
+      <input type="text" id="title_article" name="title_article" required>
     </div>
 
     <div>
       <label for="journal">Julkaisupaikka:</label>
-      <input type="text" id="journal" name="journal" required>
+      <input type="text" id="journal_article" name="journal_article" required>
     </div>
 
     <div>
       <label for="year">Vuosi:</label>
-      <input type="number" id="year" name="year" required>
+      <input type="number" id="year_article" name="year_article" required>
     </div>
 
     <div>
       <label for="volume">Volyymi:</label>
-      <input type="text" id="volume" name="volume">
+      <input type="text" id="volume_article" name="volume_article">
     </div>
 
     <div>
       <label for="pages">Sivut:</label>
-      <input type="text" id="pages" name="pages">
+      <input type="text" id="pages_article" name="pages_article">
     </div>
 
     <div>
-      <button type="submit" id="submit">Lisää viite</button>
+      <button type="submit" id="article">Lisää viite</button>
+    </div>
+  </form>
+
+  <h1>Lisää inproceedings viite</h1>
+
+  <form action="/inproceedings_new" method="POST">
+    <div>
+      <label for="key">Viitteen nimi:</label>
+      <input type="text" id="key_inproceedings" name="key_inproceedings" required>
+    </div>
+
+    <div>
+      <label for="author">Kirjoittaja:</label>
+      <input type="text" id="author_inproceedings" name="author_inproceedings" required>
+    </div>
+
+    <div>
+      <label for="title">Otsikko:</label>
+      <input type="text" id="title_inproceedings" name="title_inproceedings" required>
+    </div>
+
+    <div>
+      <label for="year">Vuosi:</label>
+      <input type="number" id="year_inproceedings" name="year_inproceedings" required>
+    </div>
+
+    <div>
+      <label for="volume">kirjan nimi:</label>
+      <input type="text" id="booktitle_inproceedings" name="booktitle_inproceedings">
+    </div>
+
+    <div>
+      <button type="submit" id="inproceedings">Lisää viite</button>
     </div>
   </form>
 
