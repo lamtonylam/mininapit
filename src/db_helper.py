@@ -1,7 +1,7 @@
 from sqlalchemy import text
 from config import db, app
 
-TABLE = 'articles'
+TABLES = ['articles', 'inproceedings']
 
 def table_exists(name):
     sql_table_existence = text(
@@ -13,36 +13,52 @@ def table_exists(name):
     )
 
     print(f'Checking if table {name} exists')
-    print(sql_table_existence)
 
     result = db.session.execute(sql_table_existence)
     return result.fetchall()[0][0]
 
 def reset_db():
-    print(f'Clearing contents from table {TABLE}')
-    sql = text(f'DELETE FROM {TABLE}')
-    db.session.execute(sql)
-    db.session.commit()
-
-def setup_db():
-    if table_exists(TABLE):
-        print(f'Table {TABLE} exists, dropping')
-        sql = text(f'DROP TABLE {TABLE}')
+    for table in TABLES:
+        print(f'Clearing contents from table {table}')
+        sql = text(f'DELETE FROM {table}')
         db.session.execute(sql)
         db.session.commit()
 
-    print(f'Creating table {TABLE}')
+def setup_db():
+    for table in TABLES:
+        if table_exists(table):
+            print(f'Table {table} exists, dropping')
+            sql = text(f'DROP TABLE {table}')
+            db.session.execute(sql)
+            db.session.commit()
+
+    print('Creating table articles')
     sql = text(
-      f'CREATE TABLE {TABLE} ('
-      '  id SERIAL PRIMARY KEY,'
-      '  key TEXT UNIQUE NOT NULL,'
-      '  author TEXT NOT NULL,'
-      '  title TEXT NOT NULL,'
-      '  journal TEXT NOT NULL,'
-      '  year INT NOT NULL,'
-      '  volume TEXT,'
-      '  pages TEXT'
-      ')'
+    'CREATE TABLE articles ('
+    '  id SERIAL PRIMARY KEY,'
+    '  key TEXT UNIQUE NOT NULL,'
+    '  author TEXT NOT NULL,'
+    '  title TEXT NOT NULL,'
+    '  journal TEXT NOT NULL,'
+    '  year INT NOT NULL,'
+    '  volume TEXT,'
+    '  pages TEXT'
+    ')'
+    )
+
+    db.session.execute(sql)
+    db.session.commit()
+
+    print('Creating table inproceedings')
+    sql = text(
+    'CREATE TABLE inproceedings ('
+    '  id SERIAL PRIMARY KEY,'
+    '  key TEXT UNIQUE NOT NULL,'
+    '  author TEXT NOT NULL,'
+    '  title TEXT NOT NULL,'
+    '  year INT NOT NULL,'
+    '  booktitle TEXT NOT NULL'
+    ')'
     )
 
     db.session.execute(sql)
