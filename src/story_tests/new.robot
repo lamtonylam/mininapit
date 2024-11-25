@@ -2,6 +2,7 @@
 Resource  resource.robot
 Suite Setup      Open And Configure Browser
 Suite Teardown   Close Browser
+Test Setup       Reset Todos
 
 *** Variables ***
 ${key}     testi
@@ -13,10 +14,7 @@ ${volume}     15
 ${pages}     20
 
 *** Test Cases ***
-Reset Tabke
-    GO TO  ${RESET_URL}
-
-Set article parameters
+Submit and check for article citation
     GO TO  ${NEW_URL}
     Input Text  key  ${key}
     Input Text  author  ${author}
@@ -25,9 +23,5 @@ Set article parameters
     Input Text  year  ${year}     
     Input Text  volume  ${volume}
     Input Text  pages  ${pages}
-
-Submit citation
     Click Button  submit
-
-Check for citation
     Page Should Contain   mikko: tutkimus (testi)
