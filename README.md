@@ -26,13 +26,13 @@ TEST_ENV=boolean
 SECRET_KEY=somethingsecret
 ```
 
-* Set up database (this will drop tables!!)
-
-  `python3 src/db_helper.py`
-
 * Start poetry shell
 
   ```poetry shell```
+
+* Set up database (this will drop tables!!)
+
+  `python3 src/db_helper.py`
 
 * Run app
 
