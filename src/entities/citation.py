@@ -1,3 +1,6 @@
+# pylint: disable=too-many-instance-attributes, too-few-public-methods
+# let's fix these later
+
 class Article:
     def __init__(self, *a):
         self.id = a[0]

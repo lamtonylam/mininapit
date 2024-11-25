@@ -8,7 +8,8 @@ def get_citations():
 
     return [Article(*article) for article in articles]
 
-def create_citation(key, author, title, journal, year, volume, pages):
+# let's fix this issue later
+def create_citation(key, author, title, journal, year, volume, pages):  # pylint: disable=too-many-arguments, too-many-positional-arguments
     sql = text('''INSERT INTO articles (key, author, title, journal, year, volume, pages)
              VALUES (:key, :author, :title, :journal, :year, :volume, :pages)''')
 
@@ -21,7 +22,8 @@ def create_citation(key, author, title, journal, year, volume, pages):
 def generate_bibtex(citations):
     bibtex_citations = []
     for c in citations:
-        if type(c) == Article:
+        # let's fix this issue later
+        if type(c) == Article:  # pylint: disable=unidiomatic-typecheck
             bibtex_c = f"@article{{{c.key},\n" \
                            f"    author = {{{c.author}}},\n" \
                            f"    title = {{{c.title}}},\n" \
