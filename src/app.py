@@ -1,9 +1,8 @@
 from flask import render_template, request
-# from flask import redirect, flash
 from db_helper import reset_db
 from repositories.citation_repository import get_citations, create_citation, generate_bibtex
 from config import app, test_env
-# from util import validate_todo
+ 
 
 @app.get('/')
 def index():
