@@ -2,7 +2,6 @@ from flask import render_template, request
 from db_helper import reset_db
 from repositories.citation_repository import get_citations, create_citation, generate_bibtex
 from config import app, test_env
- 
 
 @app.get('/')
 def index():
