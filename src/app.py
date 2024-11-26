@@ -1,6 +1,6 @@
 from flask import render_template, request
 from db_helper import reset_db
-from repositories.citation_repository import get_citations, create_citation, generate_bibtex
+from repositories.citation_repository import get_citations, create_citation, generate_bibtex, delete_citation_by_key
 from config import app, test_env
 
 @app.get('/')
@@ -43,3 +43,10 @@ if test_env:
     @app.get('/alive')
     def alive():
         return 'yes'
+
+@app.post('/delete')
+def delete_citation():
+    key = request.form['key']
+    delete_citation_by_key(key)
+    citations = get_citations()
+    return render_template('index.html', citations=citations)

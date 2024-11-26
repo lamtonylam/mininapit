@@ -38,3 +38,8 @@ def generate_bibtex(citations):
         # if type(c) == Book:
         #     print('Book it is!')
     return bibtex_citations
+
+def delete_citation_by_key(key):
+    sql = text('DELETE FROM articles WHERE key = :key')
+    db.session.execute(sql, {'key': key})
+    db.session.commit()
