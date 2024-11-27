@@ -25,7 +25,7 @@ Submit and check for article citation
     Input Text  volume_article  ${volume}
     Input Text  pages_article  ${pages}
     Click Button  article
-    Page Should Contain   mikko: tutkimus (lehti)
+    Page Should Contain   mikko: tutkimus (testi)
 
 Submit inproceedings html form that isn't connected to anything
     GO TO  ${NEW_URL}

@@ -14,13 +14,13 @@ def new():
 
 @app.post('/article_new')
 def article_new():
-    key = request.form['key']
-    author = request.form['author']
-    title = request.form['title']
-    journal = request.form['journal']
-    year = request.form['year']
-    volume = request.form.get('volume')
-    pages = request.form.get('pages')
+    key = request.form['key_article']
+    author = request.form['author_article']
+    title = request.form['title_article']
+    journal = request.form['journal_article']
+    year = request.form['year_article']
+    volume = request.form.get('volume_article')
+    pages = request.form.get('pages_article')
 
     create_citation(key, author, title, journal, year, volume, pages)
 
@@ -30,11 +30,11 @@ def article_new():
 
 @app.post('/inproceedings_new')
 def inproceedings_new():
-    key = request.form['key']
-    author = request.form['author']
-    title = request.form['title']
-    year = request.form['year']
-    booktitles = request.form['booktitle']
+    key = request.form['key_inproceedings']
+    author = request.form['author_inproceedings']
+    title = request.form['title_inproceedings']
+    year = request.form['year_inproceedings']
+    booktitles = request.form['booktitle_inproceedings']
 
     # create_citation(key, author, title, journal, year, volume, pages)
     # Add functions for inproceedings citations to update into the database.
