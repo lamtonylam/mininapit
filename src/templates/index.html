@@ -25,7 +25,8 @@
       {{citation}}
     {% endif %}
     <form action="/delete" method="POST">
-      <input type="hidden" name="key" value="{{citation.key}}">
+      <input type="hidden" name="id" value="{{citation.id}}">
+      <input type="hidden" name="type" value="{{citation.type_as_string}}">
       <button type="submit">Poista</button>
     </form>
 

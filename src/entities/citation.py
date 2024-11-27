@@ -17,7 +17,7 @@ class Article:
 
     def __str__(self):
         return f'{self.author}: {self.title} ({self.key})'
-    
+
     def bibtex(self):
         return (
             f'@{self.type_as_string}{{{self.key},\n'
@@ -42,7 +42,7 @@ class Inproceedings:
 
     def __str__(self):
         return f'{self.author}: {self.title} ({self.key})'
-    
+
     def bibtex(self):
         return (
             f'@{self.type_as_string}{{{self.key},\n'

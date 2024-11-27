@@ -3,7 +3,7 @@ from db_helper import reset_db
 from repositories.citation_repository import (
     get_citations,
     create_citation,
-    delete_citation_by_key,
+    delete_citation_by_id,
 )
 from config import app, test_env
 
@@ -33,8 +33,9 @@ def create_new():
 
 @app.post('/delete')
 def delete_citation():
-    key = request.form['key']
-    delete_citation_by_key(key)
+    cid = request.form['id']
+    ctype = request.form['type']
+    delete_citation_by_id(cid, ctype)
 
     return redirect('/')
 

@@ -19,7 +19,15 @@ def create_citation(key, author, title, journal, year, volume, pages):  # pylint
     })
     db.session.commit()
 
-def delete_citation_by_key(key):
-    sql = text('DELETE FROM articles WHERE key = :key')
-    db.session.execute(sql, {'key': key})
+def delete_citation_by_id(cid, ctype):
+    # no sql injections
+    if not ctype in ('article', 'inproceedings'):
+        return
+    
+    # change to plural if needed
+    if ctype[-1] != 's':
+        ctype += 's'
+
+    sql = text(f'DELETE FROM {ctype} WHERE id = :id')
+    db.session.execute(sql, {'id': cid})
     db.session.commit()
