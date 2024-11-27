@@ -23,7 +23,7 @@ def delete_citation_by_id(cid, ctype):
     # no sql injections
     if not ctype in ('article', 'inproceedings'):
         return
-    
+
     # change to plural if needed
     if ctype[-1] != 's':
         ctype += 's'
