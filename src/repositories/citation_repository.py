@@ -1,12 +1,12 @@
 from sqlalchemy import text
 from config import db
-from entities.citation import Article
+from entities.citation import Article, Inproceedings
 
 def get_citations():
-    result = db.session.execute(text('SELECT * FROM articles'))
-    articles = result.fetchall()
+    articles = db.session.execute(text('SELECT * FROM articles')).fetchall()
+    inproceedings = db.session.execute(text('SELECT * FROM inproceedings')).fetchall()
 
-    return [Article(*article) for article in articles]
+    return [Article(*art) for art in articles] + [Inproceedings(*ip) for ip in inproceedings]
 
 # let's fix this issue later
 def create_citation(key, author, title, journal, year, volume, pages):  # pylint: disable=too-many-arguments, too-many-positional-arguments
