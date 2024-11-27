@@ -1,5 +1,8 @@
-{% extends "layout.html" %} {% block title %}Bibtex-apuri{% endblock %} {% block
-body %}
+{% extends "layout.html" %} 
+
+{% block title %}Bibtex-apuri{% endblock %} 
+
+{% block body %}
 
 <h1>Bibtex-apuri</h1>
 
@@ -16,6 +19,10 @@ body %}
 <pre>
 {% for citation in citations %}
 {{citation}}
+<form action="/delete" method="POST" style="display:inline;">
+  <input type="hidden" name="key" value="{{ citation.key }}">
+  <button type="submit">Poista</button>
+</form>
 {% else %}
 <p>Ei lisättyjä viitteitä</p>
 {% endfor %}
