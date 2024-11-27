@@ -19,7 +19,7 @@
 <pre>
 {% for citation in citations %}
 {{citation}}
-<form action="/delete" method="POST" style="display:inline;">
+<form action="/delete" method="POST" style="display:inline;" onsubmit="popup()">
   <input type="hidden" name="key" value="{{ citation.key }}">
   <button type="submit">Poista</button>
 </form>
