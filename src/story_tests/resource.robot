@@ -5,7 +5,7 @@ Library  SeleniumLibrary
 ${SERVER}     localhost:5001
 ${DELAY}      0.5 seconds
 ${HOME_URL}   http://${SERVER}
-${RESET_URL}  http://${SERVER}/reset_db
+${RESET_URL}  http://${SERVER}/reset-db
 ${NEW_URL}   http://${SERVER}/new
 ${BROWSER}    chrome
 ${HEADLESS}   false

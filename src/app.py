@@ -17,7 +17,7 @@ def index():
 def new():
     return render_template('new.html')
 
-@app.post('/create_new')
+@app.post('/create')
 def create_new():
     key = request.form['key']
     author = request.form['author']
@@ -44,7 +44,7 @@ def toggle_bibtex():
     return render_template('index.html', citations=citations, is_bibtex=True)
 
 if test_env:
-    @app.get('/reset_db')
+    @app.get('/reset-db')
     def reset_database():
         reset_db()
         return 'db reset'
