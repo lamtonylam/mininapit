@@ -1,4 +1,4 @@
-from flask import render_template, request
+from flask import render_template, request, redirect
 from db_helper import reset_db
 from repositories.citation_repository import (
     get_citations,
@@ -29,9 +29,14 @@ def create_new():
 
     create_citation(key, author, title, journal, year, volume, pages)
 
-    citations = get_citations()
+    return redirect('/')
 
-    return render_template('index.html', citations=citations)
+@app.post('/delete')
+def delete_citation():
+    key = request.form['key']
+    delete_citation_by_key(key)
+
+    return redirect('/')
 
 @app.get('/toggle-bibtex')
 def toggle_bibtex():
@@ -47,10 +52,3 @@ if test_env:
     @app.get('/alive')
     def alive():
         return 'yes'
-
-@app.post('/delete')
-def delete_citation():
-    key = request.form['key']
-    delete_citation_by_key(key)
-    citations = get_citations()
-    return render_template('index.html', citations=citations)
