@@ -52,3 +52,4 @@ Submit and check that the toggle BibTeX button works
     Page Should Contain  ${bibtex}
     Click Button  Toggle normal citations
     Page Should Contain   mikko: tutkimus (testi)
+
