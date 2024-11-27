@@ -1,6 +1,6 @@
 from flask import render_template, request
 from db_helper import reset_db
-from repositories.citation_repository import get_citations, create_citation, generate_bibtex
+from repositories.citation_repository import get_citations, create_article, create_inproceedings, generate_bibtex
 from config import app, test_env
 
 @app.get('/')
@@ -22,7 +22,7 @@ def article_new():
     volume = request.form.get('volume_article')
     pages = request.form.get('pages_article')
 
-    create_citation(key, author, title, journal, year, volume, pages)
+    create_article(key, author, title, journal, year, volume, pages)
 
     citations = get_citations()
 
@@ -34,10 +34,9 @@ def inproceedings_new():
     author = request.form['author_inproceedings']
     title = request.form['title_inproceedings']
     year = request.form['year_inproceedings']
-    booktitles = request.form['booktitle_inproceedings']
+    booktitle = request.form['booktitle_inproceedings']
 
-    # create_citation(key, author, title, journal, year, volume, pages)
-    # Add functions for inproceedings citations to update into the database.
+    create_inproceedings(key, author, title, year, booktitle)
     
     citations = get_citations()
 
