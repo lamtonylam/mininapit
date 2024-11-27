@@ -19,26 +19,6 @@ def create_citation(key, author, title, journal, year, volume, pages):  # pylint
     })
     db.session.commit()
 
-def generate_bibtex(citations):
-    bibtex_citations = []
-    for c in citations:
-        # let's fix this issue later
-        if type(c) == Article:  # pylint: disable=unidiomatic-typecheck
-            bibtex_c = f'@article{{{c.key},\n' \
-                           f'    author = {{{c.author}}},\n' \
-                           f'    title = {{{c.title}}},\n' \
-                           f'    journal = {{{c.journal}}},\n' \
-                           f'    year = {{{c.year}}},\n' \
-                           f'    volume = {{{c.volume}}},\n' \
-                           f'    pages = {{{c.pages}}}\n' \
-                           f'}}'
-            bibtex_citations.append(bibtex_c)
-        # if type(c) == Inproceedings:
-        #     print('Inproceedings it is!')
-        # if type(c) == Book:
-        #     print('Book it is!')
-    return bibtex_citations
-
 def delete_citation_by_key(key):
     sql = text('DELETE FROM articles WHERE key = :key')
     db.session.execute(sql, {'key': key})
