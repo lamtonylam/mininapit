@@ -1,23 +1,23 @@
-from flask import render_template, request
+from flask import render_template, request, redirect
 from db_helper import reset_db
 from repositories.citation_repository import (
     get_citations,
     create_citation,
-    generate_bibtex,
-    delete_citation_by_key,
+    delete_citation_by_id,
 )
 from config import app, test_env
 
 @app.get('/')
 def index():
     citations = get_citations()
+
     return render_template('index.html', citations=citations)
 
 @app.get('/new')
 def new():
     return render_template('new.html')
 
-@app.post('/create_new')
+@app.post('/create')
 def create_new():
     key = request.form['key']
     author = request.form['author']
@@ -29,18 +29,23 @@ def create_new():
 
     create_citation(key, author, title, journal, year, volume, pages)
 
-    citations = get_citations()
+    return redirect('/')
 
-    return render_template('index.html', citations=citations)
+@app.post('/delete')
+def delete_citation():
+    cid = request.form['id']
+    ctype = request.form['type']
+    delete_citation_by_id(cid, ctype)
+
+    return redirect('/')
 
 @app.get('/toggle-bibtex')
 def toggle_bibtex():
     citations = get_citations()
-    bibtex_citations = generate_bibtex(citations)
-    return render_template('index.html', citations=bibtex_citations, is_bibtex=True)
+    return render_template('index.html', citations=citations, is_bibtex=True)
 
 if test_env:
-    @app.get('/reset_db')
+    @app.get('/reset-db')
     def reset_database():
         reset_db()
         return 'db reset'
@@ -48,10 +53,3 @@ if test_env:
     @app.get('/alive')
     def alive():
         return 'yes'
-
-@app.post('/delete')
-def delete_citation():
-    key = request.form['key']
-    delete_citation_by_key(key)
-    citations = get_citations()
-    return render_template('index.html', citations=citations)
