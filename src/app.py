@@ -5,7 +5,7 @@ from repositories.citation_repository import (
     get_citations,
     create_article,
     create_inproceedings,
-    delete_citation_by_key
+    delete_citation_by_id
 )
 from config import app, test_env
 
@@ -42,7 +42,7 @@ def inproceedings_new():
     booktitle = request.form['booktitle_inproceedings']
 
     create_inproceedings(key, author, title, year, booktitle)
-    
+
     return redirect('/')
 
 @app.post('/delete')
