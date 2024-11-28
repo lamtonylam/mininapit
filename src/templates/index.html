@@ -3,7 +3,6 @@
 {% block title %}Bibtex-apuri{% endblock %} 
 
 {% block body %}
-
   <h1>Bibtex-apuri</h1>
 
   {% if is_bibtex %}
@@ -16,15 +15,13 @@
     </form>
   {% endif %}
 
-  <br>
-
   {% for citation in citations %}
     {% if is_bibtex %}
       <pre>{{citation.bibtex()}}</pre>
     {% else %}
       {{citation}}
     {% endif %}
-    <form action="/delete" method="POST">
+    <form action="/delete" method="POST" onsubmit="popup()">
       <input type="hidden" name="id" value="{{citation.id}}">
       <input type="hidden" name="type" value="{{citation.type_as_string}}">
       <button type="submit">Poista</button>
@@ -39,4 +36,9 @@
 
   <a href="/new">Luo uusi viite</a>
 
+  <script>
+    function popup() {
+      confirm("Are you sure you want to delete the citation?");
+    }
+  </script>
 {% endblock %}
