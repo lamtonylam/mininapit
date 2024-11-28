@@ -15,17 +15,21 @@
     </form>
   {% endif %}
 
+  <br>
+
   {% for citation in citations %}
     {% if is_bibtex %}
       <pre>{{citation.bibtex()}}</pre>
     {% else %}
       {{citation}}
     {% endif %}
+    {% if not is_bibtex %}
     <form action="/delete" method="POST" onsubmit="popup()">
       <input type="hidden" name="id" value="{{citation.id}}">
       <input type="hidden" name="type" value="{{citation.type_as_string}}">
       <button type="submit">Poista</button>
     </form>
+    {% endif %}
 
     <br>
   {% else %}
