@@ -22,7 +22,7 @@ Submit and check for article citation
     Input Text  author_article  ${author}
     Input Text  title_article  ${title}
     Input Text  journal_article  ${journal}
-    Input Text  year_article  ${year}     
+    Input Text  year_article  ${year}
     Input Text  volume_article  ${volume}
     Input Text  pages_article  ${pages}
     Click Button  article
@@ -30,23 +30,24 @@ Submit and check for article citation
 
 Submit inproceedings html form that isn't connected to anything
     GO TO  ${NEW_URL}
-    Input Text  key_inproceedings  ${key}
+    Input Text  key_inproceedings  ${key}2
     Input Text  author_inproceedings  ${author}
     Input Text  title_inproceedings  ${title}
-    Input Text  year_inproceedings  ${year}    
-    Input Text  booktitle_inproceedings  ${booktitle} 
+    Input Text  year_inproceedings  ${year}
+    Input Text  booktitle_inproceedings  ${booktitle}
     Click Button  inproceedings
+    Page Should Contain   mikko: tutkimus (testi2)
 
 Submit and check that the toggle BibTeX button works
     GO TO  ${NEW_URL}
-    Input Text  key  ${key}
-    Input Text  author  ${author}
-    Input Text  title  ${title}
-    Input Text  journal  ${journal}
-    Input Text  year  ${year}     
-    Input Text  volume  ${volume}
-    Input Text  pages  ${pages}
-    Click Button  submit
+    Input Text  key_article  ${key}
+    Input Text  author_article  ${author}
+    Input Text  title_article  ${title}
+    Input Text  journal_article  ${journal}
+    Input Text  year_article  ${year}
+    Input Text  volume_article  ${volume}
+    Input Text  pages_article  ${pages}
+    Click Button  article
     Page Should Contain   mikko: tutkimus (testi)
     Click Button  Toggle BibTeX
     Page Should Contain  ${bibtex}
