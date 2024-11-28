@@ -3,37 +3,42 @@
 {% block title %}Bibtex-apuri{% endblock %} 
 
 {% block body %}
+  <h1>Bibtex-apuri</h1>
 
-<h1>Bibtex-apuri</h1>
+  {% if is_bibtex %}
+    <form action="/" method="GET">
+      <button type="submit">Toggle normal citations</button>
+    </form>
+  {% else %}
+    <form action="/toggle-bibtex" method="GET">
+      <button type="submit">Toggle BibTeX</button>
+    </form>
+  {% endif %}
 
-{% if not is_bibtex %}
-<form action="/toggle-bibtex" method="GET">
-  <button type="submit">Toggle BibTeX</button>
-</form>
-{% else %}
-<form action="/" method="GET">
-  <button type="submit">Toggle normal citations</button>
-</form>
-{% endif %}
+  {% for citation in citations %}
+    {% if is_bibtex %}
+      <pre>{{citation.bibtex()}}</pre>
+    {% else %}
+      {{citation}}
+    {% endif %}
+    <form action="/delete" method="POST" onsubmit="popup()">
+      <input type="hidden" name="id" value="{{citation.id}}">
+      <input type="hidden" name="type" value="{{citation.type_as_string}}">
+      <button type="submit">Poista</button>
+    </form>
 
-<pre>
-{% for citation in citations %}
-{{citation}}
-<form action="/delete" method="POST" style="display:inline;" onsubmit="popup()">
-  <input type="hidden" name="key" value="{{ citation.key }}">
-  <button type="submit">Poista</button>
-</form>
-{% else %}
-<p>Ei lisättyjä viitteitä</p>
-{% endfor %}
-</pre>
+    <br>
+  {% else %}
+    <p>Ei lisättyjä viitteitä</p>
+  {% endfor %}
 
-<br />
+  <br>
 
-<a href="/new">Luo uusi viite</a>
-<script>
-  function popup() {
-    confirm("Are you sure you want to delete the citation?");
-  }
-</script>
+  <a href="/new">Luo uusi viite</a>
+
+  <script>
+    function popup() {
+      confirm("Are you sure you want to delete the citation?");
+    }
+  </script>
 {% endblock %}
