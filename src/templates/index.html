@@ -24,7 +24,7 @@
       {{citation}}
     {% endif %}
     {% if not is_bibtex %}
-    <form action="/delete" method="POST" onsubmit="popup()">
+    <form action="/delete" method="POST" onsubmit="return popup()">
       <input type="hidden" name="id" value="{{citation.id}}">
       <input type="hidden" name="type" value="{{citation.type_as_string}}">
       <button type="submit">Poista</button>
@@ -42,7 +42,10 @@
 
   <script>
     function popup() {
-      confirm("Are you sure you want to delete the citation?");
+      if(!confirm("Are you sure you want to delete the citation?")) {
+        return false
+      }
+      this.form.submit();
     }
   </script>
 {% endblock %}
