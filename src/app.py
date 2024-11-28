@@ -1,9 +1,11 @@
 from flask import render_template, request, redirect
 from db_helper import reset_db
+
 from repositories.citation_repository import (
     get_citations,
-    create_citation,
-    delete_citation_by_id,
+    create_article,
+    create_inproceedings,
+    delete_citation_by_id
 )
 from config import app, test_env
 
@@ -17,17 +19,29 @@ def index():
 def new():
     return render_template('new.html')
 
-@app.post('/create')
-def create_new():
-    key = request.form['key']
-    author = request.form['author']
-    title = request.form['title']
-    journal = request.form['journal']
-    year = request.form['year']
-    volume = request.form.get('volume')
-    pages = request.form.get('pages')
+@app.post('/article_new')
+def article_new():
+    key = request.form['key_article']
+    author = request.form['author_article']
+    title = request.form['title_article']
+    journal = request.form['journal_article']
+    year = request.form['year_article']
+    volume = request.form.get('volume_article')
+    pages = request.form.get('pages_article')
 
-    create_citation(key, author, title, journal, year, volume, pages)
+    create_article(key, author, title, journal, year, volume, pages)
+
+    return redirect('/')
+
+@app.post('/inproceedings_new')
+def inproceedings_new():
+    key = request.form['key_inproceedings']
+    author = request.form['author_inproceedings']
+    title = request.form['title_inproceedings']
+    year = request.form['year_inproceedings']
+    booktitle = request.form['booktitle_inproceedings']
+
+    create_inproceedings(key, author, title, year, booktitle)
 
     return redirect('/')
 
