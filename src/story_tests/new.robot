@@ -18,6 +18,7 @@ ${bibtex}    @article{testi,\n \ author = {mikko},\n \ title = {tutkimus},\n \ j
 *** Test Cases ***
 Submit and check for article citation
     GO TO  ${NEW_URL}
+    Select From List By Value  formSelector  article
     Input Text  key_article  ${key}
     Input Text  author_article  ${author}
     Input Text  title_article  ${title}
@@ -30,6 +31,7 @@ Submit and check for article citation
 
 Submit inproceedings html form that isn't connected to anything
     GO TO  ${NEW_URL}
+    Select From List By Value  formSelector  inproceedings
     Input Text  key_inproceedings  ${key}2
     Input Text  author_inproceedings  ${author}
     Input Text  title_inproceedings  ${title}
@@ -40,6 +42,7 @@ Submit inproceedings html form that isn't connected to anything
 
 Submit and check that the toggle BibTeX button works
     GO TO  ${NEW_URL}
+    Select From List By Value  formSelector  article
     Input Text  key_article  ${key}
     Input Text  author_article  ${author}
     Input Text  title_article  ${title}
