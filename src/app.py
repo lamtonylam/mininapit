@@ -26,7 +26,7 @@ def new():
 def article_new():
 
     info = Article(
-            0, 
+            0,
             request.form['key_article'],
             request.form['author_article'],
             request.form['title_article'],
