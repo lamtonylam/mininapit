@@ -13,8 +13,8 @@ def create_article(information):
              VALUES (:key, :author, :title, :journal, :year, :volume, :pages)''')
 
     db.session.execute(sql, {
-        'key': information["key"], 'author': information["author"], 'title': information["title"], 'journal': information["journal"],
-        'year': information["year"], 'volume': information["volume"], 'pages': information["pages"]
+        'key': information['key'], 'author': information['author'], 'title': information['title'], 'journal': information['journal'],
+        'year': information['year'], 'volume': information['volume'], 'pages': information['pages']
     })
     db.session.commit()
 
@@ -23,8 +23,8 @@ def create_inproceedings(information):
              VALUES (:key, :author, :title, :year, :booktitle)''')
 
     db.session.execute(sql, {
-        'key': information["key"], 'author': information["author"], 'title': information["title"],
-        'year': information["year"], 'booktitle': information["booktitle"]
+        'key': information['key'], 'author': information['author'], 'title': information['title'],
+        'year': information['year'], 'booktitle': information['booktitle']
     })
     db.session.commit()
 
