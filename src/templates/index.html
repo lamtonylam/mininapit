@@ -5,7 +5,7 @@
 {% block body %}
 <div class="main-page">
   <div class="citations glass-effect">
-    <h2>citations</h2>
+    <h2>Viitteet</h2>
     
       {% for citation in citations %}
         <div class="citation-container">
@@ -39,11 +39,11 @@
   <div class="toggle-bibtex">
     {% if is_bibtex %}
     <form action="/" method="GET">
-      <button type="submit">Toggle normal citations</button>
+      <button type="submit">Normaalit viitteet</button>
     </form>
     {% else %}
     <form action="/toggle-bibtex" method="GET">
-      <button type="submit">Toggle BibTeX</button>
+      <button type="submit">BibTeX viitteet</button>
     </form>
     {% endif %}
   </div>
