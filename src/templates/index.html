@@ -4,39 +4,36 @@
 
 {% block body %}
 <div class="main-page">
-  <div class="references">
+  <div class="references glass-effect">
     <h2>References</h2>
-    <br>
-    {% for citation in citations %}
-      {% if is_bibtex %}
-        <pre>{{citation.bibtex()}}</pre>
+    
+      {% for citation in citations %}
+        <div class="reference-container">
+        {% if is_bibtex %}
+          <pre>{{citation.bibtex()}}</pre>
+        {% else %}
+          {{citation}}
+        {% endif %}
+        {% if not is_bibtex %}
+        <form action="/delete" method="POST" onsubmit="return popup()">
+          <input type="hidden" name="id" value="{{citation.id}}">
+          <input type="hidden" name="type" value="{{citation.type_as_string}}">
+          <button class="delete-button" type="submit">Poista</button>
+        </form>
+        {% endif %}
+        </div>
       {% else %}
-        {{citation}}
-      {% endif %}
-      {% if not is_bibtex %}
-      <form action="/delete" method="POST" onsubmit="return popup()">
-        <input type="hidden" name="id" value="{{citation.id}}">
-        <input type="hidden" name="type" value="{{citation.type_as_string}}">
-        <button type="submit">Poista</button>
-      </form>
-      {% endif %}
+        <p>Ei lisättyjä viitteitä</p>
+      {% endfor %}
 
-      <br>
-    {% else %}
-      <p>Ei lisättyjä viitteitä</p>
-    {% endfor %}
-
-    <br>
-
-    <script>
-      function popup() {
-        if(!confirm("Are you sure you want to delete the citation?")) {
-          return false
+      <script>
+        function popup() {
+          if(!confirm("Are you sure you want to delete the citation?")) {
+            return false
+          }
+          this.form.submit();
         }
-        this.form.submit();
-      }
-    </script>
-
+      </script>
   </div>
 
   <div class="toggle-bibtex">
