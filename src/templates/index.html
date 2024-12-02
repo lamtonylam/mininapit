@@ -6,11 +6,7 @@
 <div class="main-page">
   <div class="references">
     <h2>References</h2>
-
-
-
     <br>
-
     {% for citation in citations %}
       {% if is_bibtex %}
         <pre>{{citation.bibtex()}}</pre>
