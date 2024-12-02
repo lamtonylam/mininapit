@@ -20,27 +20,33 @@ def new():
 
 @app.post('/article_new')
 def article_new():
-    key = request.form['key_article']
-    author = request.form['author_article']
-    title = request.form['title_article']
-    journal = request.form['journal_article']
-    year = request.form['year_article']
-    volume = request.form.get('volume_article')
-    pages = request.form.get('pages_article')
 
-    create_article(key, author, title, journal, year, volume, pages)
+    info = {
+        "key": request.form['key_article'],
+        "author": request.form['author_article'],
+        "title": request.form['title_article'],
+        "journal": request.form['journal_article'],
+        "year": request.form['year_article'],
+        "volume": request.form.get('volume_article'),
+        "pages": request.form.get('pages_article')
+    }
+
+    create_article(info)
 
     return redirect('/')
 
 @app.post('/inproceedings_new')
 def inproceedings_new():
-    key = request.form['key_inproceedings']
-    author = request.form['author_inproceedings']
-    title = request.form['title_inproceedings']
-    year = request.form['year_inproceedings']
-    booktitle = request.form['booktitle_inproceedings']
 
-    create_inproceedings(key, author, title, year, booktitle)
+    info = {
+        "key": request.form['key_inproceedings'],
+        "author": request.form['author_inproceedings'],
+        "title": request.form['title_inproceedings'],
+        "year": request.form['year_inproceedings'],
+        "booktitle": request.form['booktitle_inproceedings']
+    }
+
+    create_inproceedings(info)
 
     return redirect('/')
 
