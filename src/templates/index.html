@@ -4,6 +4,8 @@
 
 {% block body %}
 
+  <h2>References</h2>
+
   {% if is_bibtex %}
     <form action="/" method="GET">
       <button type="submit">Toggle normal citations</button>
@@ -36,8 +38,6 @@
   {% endfor %}
 
   <br>
-
-  <a href="/new">Luo uusi viite</a>
 
   <script>
     function popup() {
