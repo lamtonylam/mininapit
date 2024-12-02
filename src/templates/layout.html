@@ -11,11 +11,12 @@
     />
   </head>
   <body>
-    <nav>
-      <ul>
+    <nav>    
+      <ul>      
         <li><a href="{{ url_for('index') }}">Etusivu</a></li>
         <li><a href="{{ url_for('new') }}">Luo uusi viite</a></li>
       </ul>
+      <h1 class="app-name">Bibtex-apuri</h1>
     </nav>
     <div class="content">
       {% block body %}{% endblock %}
