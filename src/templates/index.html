@@ -3,48 +3,56 @@
 {% block title %}Bibtex-apuri{% endblock %} 
 
 {% block body %}
+<div class="main-page">
+  <div class="references">
+    <h2>References</h2>
 
-  <h2>References</h2>
 
-  {% if is_bibtex %}
+
+    <br>
+
+    {% for citation in citations %}
+      {% if is_bibtex %}
+        <pre>{{citation.bibtex()}}</pre>
+      {% else %}
+        {{citation}}
+      {% endif %}
+      {% if not is_bibtex %}
+      <form action="/delete" method="POST" onsubmit="return popup()">
+        <input type="hidden" name="id" value="{{citation.id}}">
+        <input type="hidden" name="type" value="{{citation.type_as_string}}">
+        <button type="submit">Poista</button>
+      </form>
+      {% endif %}
+
+      <br>
+    {% else %}
+      <p>Ei lisättyjä viitteitä</p>
+    {% endfor %}
+
+    <br>
+
+    <script>
+      function popup() {
+        if(!confirm("Are you sure you want to delete the citation?")) {
+          return false
+        }
+        this.form.submit();
+      }
+    </script>
+
+  </div>
+
+  <div class="toggle-bibtex">
+    {% if is_bibtex %}
     <form action="/" method="GET">
       <button type="submit">Toggle normal citations</button>
     </form>
-  {% else %}
+    {% else %}
     <form action="/toggle-bibtex" method="GET">
       <button type="submit">Toggle BibTeX</button>
     </form>
-  {% endif %}
-
-  <br>
-
-  {% for citation in citations %}
-    {% if is_bibtex %}
-      <pre>{{citation.bibtex()}}</pre>
-    {% else %}
-      {{citation}}
     {% endif %}
-    {% if not is_bibtex %}
-    <form action="/delete" method="POST" onsubmit="return popup()">
-      <input type="hidden" name="id" value="{{citation.id}}">
-      <input type="hidden" name="type" value="{{citation.type_as_string}}">
-      <button type="submit">Poista</button>
-    </form>
-    {% endif %}
-
-    <br>
-  {% else %}
-    <p>Ei lisättyjä viitteitä</p>
-  {% endfor %}
-
-  <br>
-
-  <script>
-    function popup() {
-      if(!confirm("Are you sure you want to delete the citation?")) {
-        return false
-      }
-      this.form.submit();
-    }
-  </script>
+  </div>
+</div>
 {% endblock %}
