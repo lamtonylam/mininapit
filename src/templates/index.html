@@ -3,7 +3,6 @@
 {% block title %}Bibtex-apuri{% endblock %} 
 
 {% block body %}
-
   {% if is_bibtex %}
     <form action="/" method="GET">
       <button type="submit">Toggle normal citations</button>
@@ -41,9 +40,10 @@
 
   <script>
     function popup() {
-      if(!confirm("Are you sure you want to delete the citation?")) {
+      if(!confirm('Are you sure you want to delete the citation?')) {
         return false
       }
+
       this.form.submit();
     }
   </script>
