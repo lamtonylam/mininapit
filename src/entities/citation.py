@@ -73,6 +73,6 @@ class Book:
 
     def __str__(self):
         return f'{self.author}: {self.title} ({self.key})'
-    
+
     def bibtex(self):
         return 'not implemented'
