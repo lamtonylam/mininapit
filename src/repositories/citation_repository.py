@@ -3,12 +3,12 @@ from config import db
 from entities.citation import Article, Inproceedings
 
 def get_citations():
-    articles = db.session.execute(text('SELECT * FROM articles')).fetchall()
-    inproceedings = db.session.execute(text('SELECT * FROM inproceedings')).fetchall()
+    articles = db.session.execute(text('SELECT * FROM articles')).mappings().fetchall()
+    inproceedings = db.session.execute(text('SELECT * FROM inproceedings')).mappings().fetchall()
 
-    return [Article(*art) for art in articles] + [Inproceedings(*ip) for ip in inproceedings]
+    return [Article(**art) for art in articles] + [Inproceedings(**ip) for ip in inproceedings]
 
-def create_article(info:Article):
+def create_article(info: Article):
     sql = text('''INSERT INTO articles (key, author, title, journal, year, volume, pages)
              VALUES (:key, :author, :title, :journal, :year, :volume, :pages)''')
 
@@ -23,7 +23,7 @@ def create_article(info:Article):
     })
     db.session.commit()
 
-def create_inproceedings(info:Inproceedings):
+def create_inproceedings(info: Inproceedings):
     sql = text('''INSERT INTO inproceedings (key, author, title, year, booktitle)
              VALUES (:key, :author, :title, :year, :booktitle)''')
 
