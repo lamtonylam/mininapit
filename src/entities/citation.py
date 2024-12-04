@@ -13,6 +13,10 @@ class Article:
         self.year = a[5]
         self.volume = a[6]
         self.pages = a[7]
+        self.number = a[8]
+        self.month = a[9]
+        self.note = a[10]
+        self.annote = a[11]
         self.type_as_string = 'article'
 
     def __str__(self):
@@ -38,6 +42,17 @@ class Inproceedings:
         self.title = a[3]
         self.year = a[4]
         self.booktitle = a[5]
+        self.editor = a[6]
+        self.volume = a[7]
+        self.number = a[8]
+        self.series = a[9]
+        self.pages = a[10]
+        self.month = a[11]
+        self.address = a[12]
+        self.organization = a[13]
+        self.publisher = a[14]
+        self.note = a[15]
+        self.annote = a[16]
         self.type_as_string = 'inproceedings'
 
     def __str__(self):
