@@ -52,3 +52,27 @@ class Inproceedings:
             f'  booktitle = {{{self.booktitle}}}\n'
             f'}}'
         )
+
+class Book:
+    def __init__(self, *a):
+        self.id = a[0]
+        self.key = a[1]
+        self.author = a[2]
+        self.title = a[3]
+        self.publisher = a[4]
+        self.year = a[5]
+        self.volume = a[6]
+        self.number = a[7]
+        self.series = a[8]
+        self.address = a[9]
+        self.edition = a[10]
+        self.month = a[11]
+        self.note = a[12]
+        self.annote = a[13]
+        self.type_as_string = 'book'
+
+    def __str__(self):
+        return f'{self.author}: {self.title} ({self.key})'
+    
+    def bibtex(self):
+        return 'not implemented'
