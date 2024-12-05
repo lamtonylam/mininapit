@@ -42,7 +42,11 @@ def setup_db():
     '  journal TEXT NOT NULL,'
     '  year INT NOT NULL,'
     '  volume TEXT,'
-    '  pages TEXT'
+    '  pages TEXT,'
+    '  number TEXT,' # deliberately TEXT
+    '  month TEXT,'
+    '  note TEXT,'
+    '  annote TEXT'
     ')'
     )
 
@@ -57,7 +61,18 @@ def setup_db():
     '  author TEXT NOT NULL,'
     '  title TEXT NOT NULL,'
     '  year INT NOT NULL,'
-    '  booktitle TEXT NOT NULL'
+    '  booktitle TEXT NOT NULL,'
+    '  editor TEXT,'
+    '  volume TEXT,'
+    '  number TEXT,' # deliberately TEXT
+    '  series TEXT,'
+    '  pages TEXT,'
+    '  month TEXT,'
+    '  address TEXT,'
+    '  organization TEXT,'
+    '  publisher TEXT,'
+    '  note TEXT,'
+    '  annote TEXT'
     ')'
     )
 

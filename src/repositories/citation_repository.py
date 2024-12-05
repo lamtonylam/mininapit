@@ -13,7 +13,7 @@ def get_citations():
         [Book(*bk) for bk in books]
     )
 
-def create_article(info:Article):
+def create_article(info: Article):
     sql = text('''INSERT INTO articles (key, author, title, journal, year, volume, pages)
              VALUES (:key, :author, :title, :journal, :year, :volume, :pages)''')
 
@@ -28,7 +28,7 @@ def create_article(info:Article):
     })
     db.session.commit()
 
-def create_inproceedings(info:Inproceedings):
+def create_inproceedings(info: Inproceedings):
     sql = text('''INSERT INTO inproceedings (key, author, title, year, booktitle)
              VALUES (:key, :author, :title, :year, :booktitle)''')
 
