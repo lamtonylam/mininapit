@@ -4,88 +4,87 @@
 
 {% block body %}
 <div class="new-citation-container glass-effect">
-  <label>Viitteen tyyppi:</label>
-  <select id="formSelector">
-    <option selected="selected">Valitse viitteen tyyppi</option>
-    <option value="article">@article</option>
-    <option value="inproceedings">@inproceedings</option>
-  </select>
+  <div id="form-selector-container">
+    <label>Viitteen tyyppi:</label>
+    <select id="formSelector">
+      <option selected="selected">Valitse viitteen tyyppi</option>
+      <option value="article">@article</option>
+      <option value="inproceedings">@inproceedings</option>
+    </select>
+  </div>  
   <div id="forms">
     <form id="article" action="/article_new" class="form" method="POST" style="display:none">
-      <div>
+      <div class="form-row">
         <label for="key">Viitteen nimi:</label>
         <input type="text" name="key_article" required>
       </div>
 
-      <div>
+      <div class="form-row">
         <label for="author">Kirjoittaja:</label>
         <input type="text" name="author_article" required>
       </div>
 
-      <div>
+      <div class="form-row">
         <label for="title">Otsikko:</label>
         <input type="text" name="title_article" required>
       </div>
 
-      <div>
+      <div class="form-row">
         <label for="journal">Julkaisupaikka:</label>
         <input type="text" name="journal_article" required>
       </div>
 
-      <div>
+      <div class="form-row">
         <label for="year">Vuosi:</label>
         <input type="number" name="year_article" required>
       </div>
 
-      <div>
+      <div class="form-row">
         <label for="volume">Volyymi:</label>
         <input type="text" name="volume_article">
       </div>
 
-      <div>
+      <div class="form-row">
         <label for="pages">Sivut:</label>
         <input type="text" name="pages_article">
       </div>
 
-      <div>
+      <div class="form-row">
         <button type="submit" id="article">Lisää viite</button>
       </div>
     </form>
 
     <form id="inproceedings" action="/inproceedings_new" class="form" method="POST" style="display:none">
-      <div>
+      <div class="form-row">
         <label for="key">Viitteen nimi:</label>
         <input type="text" name="key_inproceedings" required>
       </div>
   
-      <div>
+      <div class="form-row">
         <label for="author">Kirjoittaja:</label>
         <input type="text" name="author_inproceedings" required>
       </div>
   
-      <div>
+      <div class="form-row">
         <label for="title">Otsikko:</label>
         <input type="text" name="title_inproceedings" required>
       </div>
   
-      <div>
+      <div class="form-row">
         <label for="year">Vuosi:</label>
         <input type="number" name="year_inproceedings" required>
       </div>
   
-      <div>
+      <div class="form-row">
         <label for="volume">Kirjan nimi:</label>
         <input type="text" name="booktitle_inproceedings">
       </div>
   
-      <div>
+      <div class="form-row">
         <button type="submit" id="inproceedings">Lisää viite</button>
       </div>
     </form>
   </div>
-
-  <a href="/">Palaa etusivulle</a>
-
   <script>
   const formSelector = document.getElementById('formSelector');
   const forms = document.querySelectorAll('.form');
