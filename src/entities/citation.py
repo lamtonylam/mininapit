@@ -76,14 +76,14 @@ class Book:
         self.title = a['title']
         self.publisher = a['publisher']
         self.year = a['year']
-        self.volume = a['volume']
-        self.number = a['number']
-        self.series = a['series']
-        self.address = a['address']
-        self.edition = a['edition']
-        self.month = a['month']
-        self.note = a['note']
-        self.annote = a['annote']
+        self.volume = a.get('volume')
+        self.number = a.get('number')
+        self.series = a.get('series')
+        self.address = a.get('address')
+        self.edition = a.get('edition')
+        self.month = a.get('month')
+        self.note = a.get('note')
+        self.annote = a.get('annote')
         self.type_as_string = 'book'
 
     def __str__(self):
