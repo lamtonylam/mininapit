@@ -69,21 +69,21 @@ class Inproceedings:
         )
 
 class Book:
-    def __init__(self, *a):
-        self.id = a[0]
-        self.key = a[1]
-        self.author = a[2]
-        self.title = a[3]
-        self.publisher = a[4]
-        self.year = a[5]
-        self.volume = a[6]
-        self.number = a[7]
-        self.series = a[8]
-        self.address = a[9]
-        self.edition = a[10]
-        self.month = a[11]
-        self.note = a[12]
-        self.annote = a[13]
+    def __init__(self, *, id=None, **a):
+        self.id = id
+        self.key = a['key']
+        self.author = a['author']
+        self.title = a['title']
+        self.publisher = a['publisher']
+        self.year = a['year']
+        self.volume = a['volume']
+        self.number = a['number']
+        self.series = a['series']
+        self.address = a['address']
+        self.edition = a['edition']
+        self.month = a['month']
+        self.note = a['note']
+        self.annote = a['annote']
         self.type_as_string = 'book'
 
     def __str__(self):

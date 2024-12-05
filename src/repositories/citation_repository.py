@@ -3,14 +3,14 @@ from config import db
 from entities.citation import Article, Inproceedings, Book
 
 def get_citations():
-    articles = db.session.execute(text('SELECT * FROM articles')).fetchall()
-    inproceedings = db.session.execute(text('SELECT * FROM inproceedings')).fetchall()
-    books = db.session.execute(text('SELECT * FROM books')).fetchall()
+    articles = db.session.execute(text('SELECT * FROM articles')).mappings().fetchall()
+    inproceedings = db.session.execute(text('SELECT * FROM inproceedings')).mappings().fetchall()
+    books = db.session.execute(text('SELECT * FROM books')).mappings().fetchall()
 
     return (
-        [Article(*art) for art in articles] +
-        [Inproceedings(*ip) for ip in inproceedings] +
-        [Book(*bk) for bk in books]
+        [Article(**art) for art in articles] +
+        [Inproceedings(**ip) for ip in inproceedings] +
+        [Book(**bk) for bk in books]
     )
 
 def create_article(info: Article):
