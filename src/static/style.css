@@ -129,6 +129,6 @@ nav li:hover {
   flex: 1;
 }
 
-#form-selector-container {
+.form-selector-container {
   margin-bottom: 3rem;
 }

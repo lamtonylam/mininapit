@@ -4,13 +4,15 @@
 
 {% block body %}
 <div class="new-citation-container glass-effect">
-  <label>Viitteen tyyppi:</label>
-  <select id="formSelector">
-    <option selected="selected">Valitse viitteen tyyppi</option>
-    <option value="article">@article</option>
-    <option value="inproceedings">@inproceedings</option>
-    <option value="book">@book</option>
-  </select>
+  <div class="form-selector-container">
+    <label>Viitteen tyyppi:</label>
+    <select id="formSelector">
+      <option selected="selected">Valitse viitteen tyyppi</option>
+      <option value="article">@article</option>
+      <option value="inproceedings">@inproceedings</option>
+      <option value="book">@book</option>
+    </select>
+  </div>
 
   <div id="forms">
     <form id="article" action="/article_new" class="form" method="POST" style="display:none">
