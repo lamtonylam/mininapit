@@ -51,7 +51,6 @@
 }
 
 .delete-button {
-  background-color: #04AA6D; /* Green */
   border: none;
   color: white;
   padding: 4px 8px;
@@ -73,5 +72,30 @@
 
 .delete-button:hover {
   background-color: #f44336;
+  color: white;
+}
+
+.normal-button {
+  border: none;
+  color: white;
+  padding: 4px 8px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  transition-duration: 0.4s;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.normal-button {
+  background-color: var(--primary-color); 
+  color: black; 
+  border: 2px solid black;
+}
+
+.normal-button:hover {
+  background-color: var(--secondary-color);
   color: white;
 }

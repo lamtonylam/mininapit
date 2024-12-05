@@ -41,6 +41,19 @@ def create_inproceedings(info: Inproceedings):
     })
     db.session.commit()
 
+def create_book(info: Book):
+    sql = text('''INSERT INTO books (key, author, title, publisher, year)
+             VALUES (:key, :author, :title, :publisher, :year)''')
+
+    db.session.execute(sql, {
+        'key': info.key,
+        'author': info.author,
+        'title': info.title,
+        'publisher': info.publisher,
+        'year': info.year
+    })
+    db.session.commit()
+
 def delete_citation_by_id(cid, ctype):
     # no sql injections
     if not ctype in ('article', 'inproceedings', 'book'):
