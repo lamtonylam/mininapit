@@ -4,12 +4,14 @@ from repositories.citation_repository import (
     get_citations,
     create_article,
     create_inproceedings,
+    create_book,
     delete_citation_by_id
 )
 from config import app, test_env
 from entities.citation import (
     Article,
-    Inproceedings
+    Inproceedings,
+    Book
 )
 
 @app.get('/')
@@ -51,6 +53,21 @@ def inproceedings_new():
     )
 
     create_inproceedings(info)
+
+    return redirect('/')
+
+@app.post('/book_new')
+def book_new():
+
+    info = Book(
+        key=request.form['key_book'],
+        author=request.form['author_book'],
+        title=request.form['title_book'],
+        publisher=request.form['publisher_book'],
+        year=request.form['year_book']
+    )
+
+    create_book(info)
 
     return redirect('/')
 
