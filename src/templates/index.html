@@ -38,6 +38,7 @@
 
   <div class="toggle-bibtex">
     {% if is_bibtex %}
+  {% if is_bibtex %}
     <form action="/" method="GET">
       <button type="submit">Normaalit viitteet</button>
     </form>
@@ -48,4 +49,23 @@
     {% endif %}
   </div>
 </div>
+
+    <br>
+  {% else %}
+    <p>Ei lisättyjä viitteitä</p>
+  {% endfor %}
+
+  <br>
+
+  <a href="/new">Luo uusi viite</a>
+
+  <script>
+    function popup() {
+      if(!confirm('Are you sure you want to delete the citation?')) {
+        return false
+      }
+
+      this.form.submit();
+    }
+  </script>
 {% endblock %}

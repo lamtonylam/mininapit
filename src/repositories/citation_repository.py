@@ -8,25 +8,31 @@ def get_citations():
 
     return [Article(*art) for art in articles] + [Inproceedings(*ip) for ip in inproceedings]
 
-# let's fix this issue later
-def create_article(key, author, title, journal, year, volume, pages):  # pylint: disable=too-many-arguments, too-many-positional-arguments
+def create_article(info:Article):
     sql = text('''INSERT INTO articles (key, author, title, journal, year, volume, pages)
              VALUES (:key, :author, :title, :journal, :year, :volume, :pages)''')
 
     db.session.execute(sql, {
-        'key': key, 'author': author, 'title': title, 'journal': journal,
-        'year': year, 'volume': volume, 'pages': pages
+        'key': info.key,
+        'author': info.author,
+        'title': info.title,
+        'journal': info.journal,
+        'year': info.year,
+        'volume': info.volume,
+        'pages': info.pages
     })
     db.session.commit()
 
-# let's fix this issue later
-def create_inproceedings(key, author, title, year, booktitle):  # pylint: disable=too-many-arguments, too-many-positional-arguments
+def create_inproceedings(info:Inproceedings):
     sql = text('''INSERT INTO inproceedings (key, author, title, year, booktitle)
              VALUES (:key, :author, :title, :year, :booktitle)''')
 
     db.session.execute(sql, {
-        'key': key, 'author': author, 'title': title,
-        'year': year, 'booktitle': booktitle
+        'key': info.key,
+        'author': info.author,
+        'title': info.title,
+        'year': info.year,
+        'booktitle': info.booktitle
     })
     db.session.commit()
 
